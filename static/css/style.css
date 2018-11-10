@@ -1,0 +1,26 @@
+@font-face {
+    font-family: Avenir;
+    src: url('/static/font/avenir.ttf') format('truetype');
+}
+
+html, body {
+    height: 100%;
+}
+
+body, * {
+    font-family: "Avenir", sans-serif;
+}
+
+body {
+    position: relative;
+    margin: 0;
+    padding-bottom: 6rem;
+    min-height: 100%;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}

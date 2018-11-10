@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>{{ title }}</title>
+    <link href="/static/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/static/css/mdb.min.css" rel="stylesheet">
+    <link href="/static/css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="/static/font-awesome-4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+
+<nav class="navbar navbar-dark peach-gradient primary-color">
+    <a class="navbar-brand" href="/">
+        <img src="/static/img/gramener.png" height="70" alt="mdb logo">
+    </a>
+    <ul class="nav tabs-cyan" id="myTab" role="tablist">
+
+
+        <li class="nav-item">
+            <a class="nav-link  white-text waves-light active" data-toggle="tab" href="#tab1" role="tab"
+               aria-controls="tab1">Add Student</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link white-text waves-light" data-toggle="tab" href="#tab2" role="tab"
+               aria-controls="tab2"
+               onclick="loadstudents()">Students</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link  white-text waves-light" data-toggle="tab" href="#othertasks" role="tab"
+               aria-controls="othertasks">Other Tasks</a>
+        </li>
+    </ul>
+</nav>
+<button id="open-model-button" type="button" class="btn btn-primary" data-toggle="modal"
+        data-target="#frameModalBottom"
+        style="display: none"></button>
+<div class="modal fade bottom" id="frameModalBottom" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog modal-frame modal-bottom" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="row d-flex justify-content-center align-items-center">
+                    <p class="pt-3 pr-2" id="modal-message"></p>
+                    <button type="button" class="btn peach-gradient" data-dismiss="modal">OK</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="tab-content">
+    <div class="tab-pane active" id="tab1" role="tabpanel">
+        <div class="container">
+            <div class="row pt-4 pl-2">
+                <h4 class="font-weight-bold w-100"> Add Student</h4>
+            </div>
+            <br>
+            <div class="row pl-2">
+                <div class="md-form mb-0">
+                    <input type="text" id="student-name" class="form-control validate" required>
+                    <label for="student-name">Student Name</label>
+                </div>
+            </div>
+            <div class="row pl-2">
+                <div class="md-form mb-0 mt-0">
+                    <input type="number" id="student-age" class="form-control validate" required>
+                    <label for="student-age">Age</label>
+                </div>
+            </div>
+            <div class="row pl-2">
+                <div class="md-form mb-4 mt-0">
+                    <select class="form-control" id="student-gender">
+                        <option disabled selected>Select Gender</option>
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                    </select>
+                    <button class="btn btn-default peach-gradient" onclick="add_student()">Submit</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="tab-pane" id="tab2" role="tabpanel">
+        <div class="container">
+            <div class="row pt-4 p-2">
+                <h4 class="font-weight-bold w-100"> Students List</h4>
+            </div>
+            <br>
+            <div class="row p-2">
+                <div class="table-responsive">
+                    <table class="table table-striped">
+                        <caption id="caption-available-seat"></caption>
+                        <thead class="peach-gradient">
+                        <tr>
+                            <th class="white-text" scope="col"><strong>Name</strong></th>
+                            <th class="white-text" scope="col"><strong>Age</strong></th>
+                            <th class="white-text" scope="col"><strong>Gender</strong></th>
+                        </tr>
+                        </thead>
+                        <tbody id="students-tbody"></tbody>
+                    </table>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="tab-pane" id="othertasks" role="tabpanel">
+        <div class="container">
+            <div class="row" style="margin-bottom: 50%">
+                <div class="col-6">
+                    <h3 class="pt-4">Task1</h3>
+                    <pre id="t2" class="container-fluid mt-4" style="background: black; color: white;">
+import os
+
+
+def print_dir(current_path):
+    if os.path.isfile(current_path):
+        print(current_path)
+        return
+    for dir_or_file in os.listdir(current_path):
+        print_dir(os.path.join(current_path, dir_or_file))
+
+
+if __name__ == '__main__':
+    dir_name = input('Enter Directory path (Relative or Absolute)\n')
+    print_dir(current_path=dir_name)
+
+                    </pre>
+                </div>
+                <div class="col-6">
+                    <h3 class="pt-4">Task3</h3>
+
+                    <pre id="t3" class="container-fluid mt-4" style="background: black; color: white;">
+if __name__ == '__main__':
+    L1, L2 = ['a', 'b', 'c'], ['b', 'd']
+    print('Common Elements in L1 and L2 =', set(L1).intersection(L2))
+    print('Present in L1 but not in L2 =', set(L1) - set(L2))
+                    </pre>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="/static/js/jquery-3.3.1.min.js"></script>
+<script type="text/javascript" src="/static/js/popper.min.js"></script>
+<script type="text/javascript" src="/static/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="/static/js/mdb.min.js"></script>
+<script>
+    $(function () {
+        $('#myTab a:first').tab('show');
+    })
+</script>
+<script>
+    function add_student() {
+        if (!($('#student-name').val() && $('#student-age').val() && $('#student-gender').val())) {
+            $('#modal-message').html('All fields are Required');
+            $('#open-model-button').click();
+            return;
+        }
+        $.ajax({
+            type: "POST",
+            url: '/add-student',
+            contentType: 'application/json; charset=utf-8',
+            dataType: 'json',
+            async: false,
+            data: JSON.stringify({
+                name: $('#student-name').val(),
+                age: $('#student-age').val(),
+                gender: $('#student-gender').val(),
+            }),
+            success: function (data) {
+                $('#modal-message').html('Student Added Successfully');
+                $('#student-name').val('');
+                $('#student-age').val('');
+                $('#open-model-button').click();
+            },
+        });
+    }
+</script>
+<script>
+    function loadstudents() {
+        $.ajax({
+            url: `/get-students`,
+            success: function (data) {
+                $('#students-tbody').html('');
+                JSON.parse(data).forEach(function (entry) {
+                    $('#students-tbody').append(
+                        `<tr><td>${entry.name}</td><td>${entry.age}</td><td>${entry.gender}</td></tr>`
+                    )
+                });
+            }
+        });
+    }
+</script>
+</body>
+<footer class="footer page-footer font-small peach-gradient pt-4">
+    <div class="container">
+        <ul class="list-unstyled list-inline text-center">
+            <li class="list-inline-item">
+                <a class="btn-floating btn-fb mx-1" target="_blank" href="https://www.linkedin.com/in/agrawal-prateek">
+                    <i class="fa fa-linkedin"> </i>
+                </a>
+            </li>
+            <li class="list-inline-item">
+                <a class="btn-floating btn-tw mx-1" target="_blank" href="https://github.com/agrawal-prateek/">
+                    <i class="fa fa-github"> </i>
+                </a>
+            </li>
+            <li class="list-inline-item">
+                <a class="btn-floating btn-gplus mx-1" target="_blank"
+                   href="https://stackoverflow.com/users/7159290/prateek-agrawal">
+                    <i class="fa fa-stack-overflow"> </i>
+                </a>
+            </li>
+            <li class="list-inline-item">
+                <a class="btn-floating btn-li mx-1" href="mailto://prateekagrawal89760@gmail.com">
+                    <i class="fa fa-envelope"> </i>
+                </a>
+            </li>
+            <li class="list-inline-item">
+                <a class="btn-floating btn-dribbble mx-1" target="_blank" href="tel://+917464847884">
+                    <i class="fa fa-phone"> </i>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div class="footer-copyright text-center py-3">© 2018 Copyright:
+        Built by<a href="http://agrawal-prateek.github.io"> Prateek Agrawal</a>
+    </div>
+</footer>
+
+</html>
