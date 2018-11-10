@@ -32,6 +32,14 @@ To run this project, Go to project's root directory and type the following comma
  
         pip install -r requirements.txt
 
+For any query, feel free and contact me
+
+
+Prateek Agrawal
+prateekagrawal89760@gmail.com
+Website | LinkedIn | +91-7464847884
+
+
  [1]: http://35.200.230.23:5656
  [2]: https://github.com/agrawal-prateek/Gramener-Flask
  [3]: https://www.python.org/downloads/
