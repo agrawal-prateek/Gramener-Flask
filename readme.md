@@ -1,8 +1,8 @@
 # Gramener Developer Hiring Challenge
 
-See Application Live on (http://35.200.230.23:5656)[1]
+See Application Live on [http://35.200.230.23:5656][1]
 
-Source Code (Link)[2]
+Source Code [Link][2]
 
 #### Tech Stacks
 
