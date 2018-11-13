@@ -37,7 +37,7 @@ For any query, feel free and contact me
 
 **Prateek Agrawal**  
 prateekagrawal89760@gmail.com  
-[Website][4] | [LinkedIn][5] | [+91-7464847884][6]
+[Website][4] | [LinkedIn][5] | [+917464847884][6]
 
 
  [1]: http://35.200.230.23:5656
